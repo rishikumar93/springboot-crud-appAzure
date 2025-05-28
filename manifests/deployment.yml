@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: rishikumarspringbootcrudappazure 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rishikumarspringbootcrudappazure
+  template:
+    metadata:
+      labels:
+        app: rishikumarspringbootcrudappazure 
+    spec:
+      containers:
+        - name: rishikumarspringbootcrudappazure 
+          image: myacrregistryrishi2.azurecr.io/rishikumarspringbootcrudappazure
+          ports:
+          - containerPort: 9292
