@@ -11,7 +11,7 @@ variables:
   imageTag: 'latest'
   aksClusterName: 'MyAKSCluster'
   aksResourceGroup: 'MyResourceGroup'
-  azureSubscription: 'azureConnection'  # name of the service connection in DevOps
+  azureSubscription: 'azureConnection2'  # name of the service connection in DevOps, created while creating service connection name in project Settings> connection
 
 stages:
 - stage: BuildAndPush
