@@ -4,7 +4,7 @@ COPY ./target/springboot-crud-app.jar springboot-crud-app.jar
 
 EXPOSE 9292
 
-ENTRYPOINT ["java",,"-jar","springboot-crud-app.jar"]
+ENTRYPOINT ["java","-jar","springboot-crud-app.jar"]
 
 
 
