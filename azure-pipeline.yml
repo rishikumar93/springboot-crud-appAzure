@@ -5,13 +5,13 @@ trigger:
 
 variables:
   # Update these with your values
-  acrName: 'myacrregistryrishi'
-  acrLoginServer: 'myacrregistryrishi.azurecr.io'
-  imageName: 'microservice-b'
+  acrName: 'myacrregistryrishi2'
+  acrLoginServer: 'myacrregistryrishi2.azurecr.io'
+  imageName: 'microservice-test'
   imageTag: 'latest'
-  aksClusterName: 'MyAKSCluster'
-  aksResourceGroup: 'MyResourceGroup'
-  azureSubscription: 'azureConnection2'  # name of the service connection in DevOps, created while creating service connection name in project Settings> connection
+  aksClusterName: 'MyAKSCluster2'
+  aksResourceGroup: 'MyResourceGroup2'
+  azureSubscription: 'azureConnectionRishi'  # name of the service connection in DevOps, created while creating service connection name in project Settings> connection
 
 stages:
 - stage: BuildAndPush
@@ -40,7 +40,7 @@ stages:
   dependsOn: BuildAndPush
   jobs:
   - deployment: Deploy
-    displayName: 'Deploy microservice-b to AKS'
+    displayName: 'Deploy microservice-test to AKS'
     environment: 'aks-env'
     strategy:
       runOnce:
@@ -54,5 +54,5 @@ stages:
               scriptLocation: 'inlineScript'
               inlineScript: |
                 az aks get-credentials --resource-group $(aksResourceGroup) --name $(aksClusterName)
-                kubectl apply -f microservice-b-deployment.yml
-                kubectl apply -f microservice-b-service.yml
+                kubectl apply -f microservice-test-deployment.yml
+                kubectl apply -f microservice-test-service.yml

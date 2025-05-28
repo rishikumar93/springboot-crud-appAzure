@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: microservice-b
+  name: microservice-test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: microservice-b
+      app: microservice-test
   template:
     metadata:
       labels:
-        app: microservice-b
+        app: microservice-test
     spec:
       containers:
-      - name: microservice-b
-        image: myacrregistryrishi.azurecr.io/microservice-b:latest
+      - name: microservice-test
+        image: myacrregistryrishi2.azurecr.io/microservice-test:latest
         ports:
         - containerPort: 9292
